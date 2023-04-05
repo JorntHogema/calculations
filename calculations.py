@@ -46,7 +46,7 @@ dataset, consisting of questions posed by crowdworkers on a set of Wikipedia \
 articles, where the answer to every question is a segment of text, or span, \
 from the corresponding reading passage, or the question might be unanswerable.
 """
-_URL = "https://github.com/JorntHogema/calculations/blob/e010d348f0c4ac89e154198dbc7bc4d1026e8204/"/"
+_URL = "https://github.com/JorntHogema/calculations/blob/e010d348f0c4ac89e154198dbc7bc4d1026e8204/"
 _URLS = {
     "train": _URL + "calculations.json",
     "dev": _URL + "calculations-dev.json",
