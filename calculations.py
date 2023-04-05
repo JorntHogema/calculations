@@ -72,10 +72,7 @@ class Jornt(datasets.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager):
         downloaded_files = dl_manager.download_and_extract(_URLS)
 
-        return [
-            datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]}),
-            datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
-        ]
+        return datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]})
 
     def _generate_examples(self, filepath):
         """This function returns the examples in the raw (text) form."""
