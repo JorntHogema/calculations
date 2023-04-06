@@ -1,7 +1,7 @@
 import json
 import datasets
 from datasets import load_dataset
-load_dataset("JorntHogema/calculations")
+load_dataset("https://github.com/JorntHogema/calculations/blob/e010d348f0c4ac89e154198dbc7bc4d1026e8204/")
 
 datasets.Features(
     {
