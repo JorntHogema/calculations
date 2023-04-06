@@ -112,23 +112,26 @@ class Calculations(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
         ]
         
-    # method parameters are unpacked from `gen_kwargs` as given in `_split_generators`
     def _generate_examples(self, filepath):
+        """This function returns the examples in the raw (text) form."""
         logger.info("generating examples from = %s", filepath)
         key = 0
         with open(filepath, encoding="utf-8") as f:
-            data = json.loads(f)
-            for article in data["data"]:
+            squad = json.load(f)
+            for article in squad["data"]:
                 title = article.get("title", "")
                 for paragraph in article["paragraphs"]:
-                    context = paragraph["context"]
+                    context = paragraph["context"]  # do not strip leading blank spaces GH-2585
                     for qa in paragraph["qas"]:
-                        answers = [answers["text"] for answers in qa["answers"]]
+                        answer_starts = [answer["answer_start"] for answer in qa["answers"]]
+                        answers = [answer["text"] for answer in qa["answers"]]
+                        # Features currently used are "context", "question", and "answers".
+                        # Others are extracted here for the ease of future expansions.
                         yield key, {
                             "title": title,
                             "context": context,
                             "question": qa["question"],
                             "id": qa["id"],
-                            "answers": "" if split == "test" else data["answers"],
-                        }
-                        key += 1
+                            "answers": answers,
+                            },
+                            key += 1
