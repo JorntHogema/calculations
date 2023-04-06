@@ -129,7 +129,7 @@ class Calculations(datasets.GeneratorBasedBuilder):
                 for paragraph in article["paragraphs"]:
                     context = paragraph["context"]
                     for qa in paragraph["qas"]:
-                        answers = [answers["text"] fro answers in qa["answers"]]
+                        answers = [answers["text"] for answers in qa["answers"]]
                         yield key, {
                             "title": title,
                             "context": context,
