@@ -114,8 +114,6 @@ class Calculations(datasets.GeneratorBasedBuilder):
         
     # method parameters are unpacked from `gen_kwargs` as given in `_split_generators`
     def _generate_examples(self, filepath):
-        # TODO: This method handles input defined in _split_generators to yield (key, example) tuples from the dataset.
-        # The `key` is for legacy reasons (tfds) and is not importnt in itself, but must be unique for each example.
         logger.info("generating examples from = %s", filepath)
         key = 0
         with open(filepath, encoding="utf-8") as f:
