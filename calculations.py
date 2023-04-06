@@ -21,7 +21,7 @@ import json
 import datasets
 from datasets import load_dataset
 from datasets.tasks import QuestionAnsweringExtractive
-load_dataset("https://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:x-oauth-basic@github.com/JorntHogema/calculations/blob/main/")
+load_dataset("https://github.com/JorntHogema/calculations/blob/main/")
 
 logger = datasets.logging.get_logger(__name__)
 
