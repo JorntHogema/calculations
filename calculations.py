@@ -16,7 +16,7 @@
 username = 'JorntHogema'
 token= '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'
 
-login = request.get('https://api.github.com/search/repositories?q=github+api', auth=(username,token))
+login = requests.get('https://api.github.com/search/repositories?q=github+api', auth=(username,token))
 
 #import csv
 import json
