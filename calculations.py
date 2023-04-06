@@ -107,9 +107,8 @@ class Calculations(datasets.GeneratorBasedBuilder):
                     question_column="question", context_column="context", answers_column="answers"
                 )
             ],        
-        )
-    
-        def _split_generators(self, dl_manager):
+        ),
+    def _split_generators(self, dl_manager):
         downloaded_files = dl_manager.download_and_extract(_URLS)
 
         return [
