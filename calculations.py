@@ -4,15 +4,6 @@ import datasets
 _URL = "https://github.com/JorntHogema/calculations/blob/e010d348f0c4ac89e154198dbc7bc4d1026e8204/"
 _URLS = {"train": _URL + "calculations.json"}
     
-datasets.Features(
-    {
-        "id": datasets.Value("string"),
-        "title": datasets.Value("string"),
-        "context": datasets.Value("string"),
-        "question": datasets.Value("string"),
-        "answers": datasets.Value("string"),
-    }
-),
 def _info(self):
     return datasets.DatasetInfo(
         description=_DESCRIPTION,
